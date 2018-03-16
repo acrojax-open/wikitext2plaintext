@@ -1,0 +1,19 @@
+{
+    "name": "wikitext2plaintext",
+    "description": "A simple, brute-force, non-exhaustive method for converting wikimedia markdown/wikitext to plaintext",
+    "version": "0.1.0",
+    "keywords": [
+        "wikitext",
+        "wikimedia",
+        "markdown",
+        "plaintext",
+        "convert"
+    ],
+    "author": "dan",
+    "contributors": [],
+    "dependencies": {
+        "he": ">1.0.0"
+    },
+    "license": "MIT",
+    "main": "wikitext2plaintext.js"
+}
