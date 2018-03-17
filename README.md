@@ -8,11 +8,23 @@ basis and perfect results are not required.
 
 ## Install
 
+```bash
 npm install wikitext2plaintext
+```
 
 ## Usage
 
+```js
 const WT2PT = require('wikitext2plaintext);
 
 var wt = new WT2PT();
+
+wt.parse('## The Title ##\r\n*List item 1\r\n*List item 2\r\n');
+
+/*
+The Title
+- List item 1
+- List itme 2
+*/
+```
 
