@@ -36,38 +36,37 @@ can exclude specific rules or specific rule groups.  The rules and rule groups a
 ## Rules & Rule Groups
 |Rule Name|Rule Group|Description|
 |-----|-----|-----|
-|BOLD_TAGS|N/A||
-|HEADER_TAGS|N/A||
-|WIKI_TABLES_REMOVE|WIKI_TABLES||
-|FILE_LINKS|LINKS||
-|FILE_LINKS|LINKS||
-|LOCAL_LINKS_ALT|LINKS||
-|LOCAL_LINKS|LINKS||
-|EXTERNAL_LINKS_ALT|LINKS||
-|EXTERNAL_LINKS_REMOVE|LINKS||
-|EXTERNAL_LINKS_KEEP_URL|LINKS||
-|CATEGORIES_FORMAT|N/A||
-|CATEGORIES_REMOVE|N/A||
-|LIST_DEPTH_6|LISTS||
-|LIST_DEPTH_5|LISTS||
-|LIST_DEPTH_4|LISTS||
-|LIST_DEPTH_3|LISTS||
-|LIST_DEPTH_2|LISTS||
-|LIST_DEPTH_1|LISTS||
-|HTML_REF_TAGS|HTML_TAGS||
-|HTML_COMMENT_TAGS|HTML_TAGS||
-|HTML_MATH_TAGS|HTML_TAGS||
-|HTML_SUB_TAGS|HTML_TAGS||
-|HTML_SUP_TAGS|HTML_TAGS||
-|HTML_BLOCKQUOTE_TAGS|HTML_TAGS||
-|CITE_TITLE|DBL_CURLY_TAGS||
-|CITATION_TITLE_1|DBL_CURLY_TAGS||
-|CITATION_TITLE_2|DBL_CURLY_TAGS||
-|ISBN_FORMAT|DBL_CURLY_TAGS||
-|IMDB_STATIC|DBL_CURLY_TAGS||
-|DMOZ_FORMAT|DBL_CURLY_TAGS||
-|OFFICIAL_WEB_STATIC|DBL_CURLY_TAGS||
-|CITE_REMOVE|DBL_CURLY_TAGS||
-|CURLY_OTHER|DBL_CURLY_TAGS||
-|REPEATED_BLANK_LINES_REMOVE|''N/A''||
+|BOLD_TAGS|*N/A*|Removes any bold tags (leaves text)|
+|HEADER_TAGS|*N/A*|Removes any header tags (leaves text)|
+|WIKI_TABLES_REMOVE|WIKI_TABLES|Removes wiki tables entirely (including removal of text)|
+|FILE_LINKS|LINKS|Removes media/file references and replaces with the alt description|
+|LOCAL_LINKS_ALT|LINKS|Replaces local wiki links with their alt link text|
+|LOCAL_LINKS|LINK|Replaces local links with their name (when no alt text exists)|
+|EXTERNAL_LINKS_ALT|LINKS|Replaces external links with their alt text|
+|EXTERNAL_LINKS_REMOVE|LINKS|Removes external links which have no alt text|
+|EXTERNAL_LINKS_KEEP_URL|LINKS|Replaces external links which have no alt text with the URL|
+|CATEGORIES_FORMAT|*N/A*|Replaces a reference to a category with "Category - <category name>"|
+|CATEGORIES_REMOVE|*N/A*|Remove any category references|
+|LIST_DEPTH_6|LISTS|Prefix depth 6 list elements with 6 dashes in place of markdown|
+|LIST_DEPTH_5|LISTS|Prefix depth 5 list elements with 5 dashes in place of markdown|
+|LIST_DEPTH_4|LISTS|Prefix depth 4 list elements with 4 dashes in place of markdown|
+|LIST_DEPTH_3|LISTS|Prefix depth 3 list elements with 3 dashes in place of markdown|
+|LIST_DEPTH_2|LISTS|Prefix depth 2 list elements with 2 dashes in place of markdown|
+|LIST_DEPTH_1|LISTS|Prefix depth 1 list elements with 1 dashes in place of markdown|
+|HTML_REF_TAGS|HTML_TAGS|Removes HTML "ref" tags|
+|HTML_COMMENT_TAGS|HTML_TAGS|Removes HTML "comment" tags|
+|HTML_MATH_TAGS|HTML_TAGS|Removes HTML "math" tags|
+|HTML_SUB_TAGS|HTML_TAGS|Removes HTML "sub" tags|
+|HTML_SUP_TAGS|HTML_TAGS|Removes HTML "sup" tags|
+|HTML_BLOCKQUOTE_TAGS|HTML_TAGS|Removes HTML "blockquote" tags|
+|CITE_TITLE|DBL_CURLY_TAGS|Replaces Wikipedia "cite" templates with the title of the cite|
+|CITATION_TITLE_1|DBL_CURLY_TAGS|Replaces Wikipedia "citation" templates with the title and publisher|
+|CITATION_TITLE_2|DBL_CURLY_TAGS|Removes Wikipedia "citation" templates with the title and publisher (reverse)|
+|ISBN_FORMAT|DBL_CURLY_TAGS|Replaces ISBN templates with the ISBN number|
+|IMDB_STATIC|DBL_CURLY_TAGS|Replaces IMDB templates with static text: "IMDB Reference"|
+|DMOZ_FORMAT|DBL_CURLY_TAGS|Replaces DMOZ templates with the name of the DMOZ reference|
+|OFFICIAL_WEB_STATIC|DBL_CURLY_TAGS|Replaces official website links with static text: "Official Website"|
+|CITE_REMOVE|DBL_CURLY_TAGS|Removes all cite templates|
+|CURLY_OTHER|DBL_CURLY_TAGS|Removes all templates/content enclosed in double curly brackets|
+|REPEATED_BLANK_LINES_REMOVE|*N/A*|Removes repeated blank lines which get created when removing markdown|
 

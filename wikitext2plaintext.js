@@ -36,7 +36,6 @@ function wikitext2plaintext() {
         ]],
         ['G','LINKS',[
                 ['R','FILE_LINKS',/\[\[(?:File|Media):(?:[^\]\[\|]+\|)+([^\]\[\|]+)\]\]/gi,'$1'],
-                ['R','FILE_LINKS',/\[\[(?:File|Media):(?:[^\]\[\|]+\|)+([^\]\[\|]+)\]\]/gi,'$1'],
                 ['R','LOCAL_LINKS_ALT',/\[\[[^\]\[\|]+\|([^\]\[\|]+)\]\]/g,'$1'],
                 ['R','LOCAL_LINKS',/\[\[([^\]\[\|]+)\]\]/g,'$1'],
                 ['R','EXTERNAL_LINKS_ALT',/\[http[^\]\[\s]{3,} ([^\]\[]+)\]/gi,'$1'],
