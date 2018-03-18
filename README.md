@@ -37,7 +37,7 @@ can exclude specific rules or specific rule groups.  The rules and rule groups a
 
 ## API
 
-### Constructor
+### `Constructor`
 
 You must create an instance of the parser prior to using the functions.
 
@@ -49,45 +49,102 @@ var wt2pt = new wikitext2plaintext();
 
 ### `wt2pt.parse(wiki_text)`
 
-* Parameter 1 - wiki_text (string) - Contains the wiki/markdown text to convert to 
-* Return value (string) - Contains the plain text version of the wiki text which was passed in
+* `wiki_text` (string) - Contains the wiki/markdown text to convert to 
+* `Return value` (string) - Contains the plain text version of the wiki text which was passed in
 
 This is the main function used to convert wiki text to plain text.  
 
+```js
+var wt2pt = new wikitext2plaintext();
+var plaintext;
+
+plaintext = wt.parse('## The Title ##\r\n*List item 1\r\n*List item 2\r\n');
+
+console.log(plaintext);
+/*
+The Title
+- List item 1
+- List item 2
+*/
+```
+
+### `wt2pt.exclude_rule_group(rule_group_name)`
+
+Causes the specified rule group (see table below) to be excluded.  All rules within that
+rule group will NOT be applied when the parse function is called.
+
+* `rule_group_name` (string) - The name of the rule group to exclude during parsing.
+* `Return value` (n/a) - No value returned from this function
+
+### `wt2pt.include_rule_group(rule_group_name)`
+
+Causes the specified rule group (see table below) to be included.  All rules within that
+rule group will be applied when the parse function is called.
+
+* `rule_group_name` (string) - The name of the rule group to include during parsing.
+* `Return value` (n/a) - No value returned from this function
+
+### `wt2pt.exclude_rule(rule_name)`
+
+Causes the specified rule group (see table below) to be excluded.  The specified rule
+ will NOT be applied when the parse function is called.
+
+* `rule_name` (string) - The name of the rule to exclude during parsing.
+* `Return value` (n/a) - No value returned from this function
+
+### `wt2pt.include_rule(rule_name)`
+
+Causes the specified rule group (see table below) to be included.  The specified rule 
+will be applied when the parse function is called.
+
+* `rule_name` (string) - The name of the rule to include during parsing.
+* `Return value` (n/a) - No value returned from this function
+
+### `wt2pt.repeat_rule_group(rule_group_name, repeat_count)`
+
+Calling this function causes the rule group (rule_group_name) to be applied multiple 
+times (repeat_count).  This is done in order to handle nested markdown.
+
+* `rule_group_name` (string) - The name of the rule group to repeat.
+* `repeat_count` (number) - The number of times the rule group should be repeated (between 1 and 1000)
+* `Return value` (n/a) - No value returned from this function
+
 ## Rules & Rule Groups
+All rules in bold are run by default.
+
 |Rule Name|Rule Group|Description|
 |-----|-----|-----|
-|BOLD_TAGS|*N/A*|Removes any bold tags (leaves text)|
-|HEADER_TAGS|*N/A*|Removes any header tags (leaves text)|
-|WIKI_TABLES_REMOVE|WIKI_TABLES|Removes wiki tables entirely (including removal of text)|
-|FILE_LINKS|LINKS|Removes media/file references and replaces with the alt description|
-|LOCAL_LINKS_ALT|LINKS|Replaces local wiki links with their alt link text|
-|LOCAL_LINKS|LINK|Replaces local links with their name (when no alt text exists)|
-|EXTERNAL_LINKS_ALT|LINKS|Replaces external links with their alt text|
-|EXTERNAL_LINKS_REMOVE|LINKS|Removes external links which have no alt text|
-|EXTERNAL_LINKS_KEEP_URL|LINKS|Replaces external links which have no alt text with the URL|
-|CATEGORIES_FORMAT|*N/A*|Replaces a reference to a category with "Category - <category name>"|
-|CATEGORIES_REMOVE|*N/A*|Remove any category references|
-|LIST_DEPTH_6|LISTS|Prefix depth 6 list elements with 6 dashes in place of markdown|
-|LIST_DEPTH_5|LISTS|Prefix depth 5 list elements with 5 dashes in place of markdown|
-|LIST_DEPTH_4|LISTS|Prefix depth 4 list elements with 4 dashes in place of markdown|
-|LIST_DEPTH_3|LISTS|Prefix depth 3 list elements with 3 dashes in place of markdown|
-|LIST_DEPTH_2|LISTS|Prefix depth 2 list elements with 2 dashes in place of markdown|
-|LIST_DEPTH_1|LISTS|Prefix depth 1 list elements with 1 dashes in place of markdown|
-|HTML_REF_TAGS|HTML_TAGS|Removes HTML "ref" tags|
-|HTML_COMMENT_TAGS|HTML_TAGS|Removes HTML "comment" tags|
-|HTML_MATH_TAGS|HTML_TAGS|Removes HTML "math" tags|
-|HTML_SUB_TAGS|HTML_TAGS|Removes HTML "sub" tags|
-|HTML_SUP_TAGS|HTML_TAGS|Removes HTML "sup" tags|
-|HTML_BLOCKQUOTE_TAGS|HTML_TAGS|Removes HTML "blockquote" tags|
-|CITE_TITLE|DBL_CURLY_TAGS|Replaces Wikipedia "cite" templates with the title of the cite|
-|CITATION_TITLE_1|DBL_CURLY_TAGS|Replaces Wikipedia "citation" templates with the title and publisher|
-|CITATION_TITLE_2|DBL_CURLY_TAGS|Removes Wikipedia "citation" templates with the title and publisher (reverse)|
-|ISBN_FORMAT|DBL_CURLY_TAGS|Replaces ISBN templates with the ISBN number|
-|IMDB_STATIC|DBL_CURLY_TAGS|Replaces IMDB templates with static text: "IMDB Reference"|
-|DMOZ_FORMAT|DBL_CURLY_TAGS|Replaces DMOZ templates with the name of the DMOZ reference|
-|OFFICIAL_WEB_STATIC|DBL_CURLY_TAGS|Replaces official website links with static text: "Official Website"|
-|CITE_REMOVE|DBL_CURLY_TAGS|Removes all cite templates|
-|CURLY_OTHER|DBL_CURLY_TAGS|Removes all templates/content enclosed in double curly brackets|
-|REPEATED_BLANK_LINES_REMOVE|*N/A*|Removes repeated blank lines which get created when removing markdown|
+|**BOLD_TAGS**|*N/A*|Removes any bold tags (leaves text)|
+|**HEADER_TAGS**|*N/A*|Removes any header tags (leaves text)|
+|**WIKI_TABLES_REMOVE**|WIKI_TABLES|Removes wiki tables entirely (including removal of text)|
+|**FILE_LINKS**|LINKS|Removes media/file references and replaces with the alt description|
+|**LOCAL_LINKS_ALT**|LINKS|Replaces local wiki links with their alt link text|
+|**LOCAL_LINKS**|LINK|Replaces local links with their name (when no alt text exists)|
+|**EXTERNAL_LINKS_ALT**|LINKS|Replaces external links with their alt text|
+|**EXTERNAL_LINKS_REMOVE**|LINKS|Removes external links which have no alt text|
+|**EXTERNAL_LINKS_KEEP_URL**|LINKS|Replaces external links which have no alt text with the URL|
+|**CATEGORIES_FORMAT**|*N/A*|Replaces a reference to a category with "Category - <category name>"|
+|**CATEGORIES_REMOVE**|*N/A*|Remove any category references|
+|**LIST_DEPTH_6**|LISTS|Prefix depth 6 list elements with 6 dashes in place of markdown|
+|**LIST_DEPTH_5**|LISTS|Prefix depth 5 list elements with 5 dashes in place of markdown|
+|**LIST_DEPTH_4**|LISTS|Prefix depth 4 list elements with 4 dashes in place of markdown|
+|**LIST_DEPTH_3**|LISTS|Prefix depth 3 list elements with 3 dashes in place of markdown|
+|**LIST_DEPTH_2**|LISTS|Prefix depth 2 list elements with 2 dashes in place of markdown|
+|**LIST_DEPTH_1**|LISTS|Prefix depth 1 list elements with 1 dashes in place of markdown|
+|**HTML_REF_TAGS**|HTML_TAGS|Removes HTML "ref" tags|
+|**HTML_COMMENT_TAGS**|HTML_TAGS|Removes HTML "comment" tags|
+|**HTML_MATH_TAGS**|HTML_TAGS|Removes HTML "math" tags|
+|**HTML_SUB_TAGS**|HTML_TAGS|Removes HTML "sub" tags|
+|**HTML_SUP_TAGS**|HTML_TAGS|Removes HTML "sup" tags|
+|**HTML_BLOCKQUOTE_TAGS**|HTML_TAGS|Removes HTML "blockquote" tags|
+|**CITE_TITLE**|DBL_CURLY_TAGS|Replaces Wikipedia "cite" templates with the title of the cite|
+|**CITATION_TITLE_1**|DBL_CURLY_TAGS|Replaces Wikipedia "citation" templates with the title and publisher|
+|**CITATION_TITLE_2**|DBL_CURLY_TAGS|Removes Wikipedia "citation" templates with the title and publisher (reverse)|
+|**ISBN_FORMAT**|DBL_CURLY_TAGS|Replaces ISBN templates with the ISBN number|
+|**IMDB_STATIC**|DBL_CURLY_TAGS|Replaces IMDB templates with static text: "IMDB Reference"|
+|**DMOZ_FORMAT**|DBL_CURLY_TAGS|Replaces DMOZ templates with the name of the DMOZ reference|
+|**OFFICIAL_WEB_STATIC**|DBL_CURLY_TAGS|Replaces official website links with static text: "Official Website"|
+|**CITE_REMOVE**|DBL_CURLY_TAGS|Removes all cite templates|
+|**CURLY_OTHER**|DBL_CURLY_TAGS|Removes all templates/content enclosed in double curly brackets|
+|**REPEATED_BLANK_LINES_REMOVE**|*N/A*|Removes repeated blank lines which get created when removing markdown|
 
