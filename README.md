@@ -122,9 +122,9 @@ All rules in bold are run by default.
 |**LOCAL_LINKS**|LINK|Replaces local links with their name (when no alt text exists)|
 |**EXTERNAL_LINKS_ALT**|LINKS|Replaces external links with their alt text|
 |**EXTERNAL_LINKS_REMOVE**|LINKS|Removes external links which have no alt text|
-|**EXTERNAL_LINKS_KEEP_URL**|LINKS|Replaces external links which have no alt text with the URL|
+|EXTERNAL_LINKS_KEEP_URL|LINKS|Replaces external links which have no alt text with the URL|
 |**CATEGORIES_FORMAT**|*N/A*|Replaces a reference to a category with "Category - <category name>"|
-|**CATEGORIES_REMOVE**|*N/A*|Remove any category references|
+|CATEGORIES_REMOVE|*N/A*|Remove any category references|
 |**LIST_DEPTH_6**|LISTS|Prefix depth 6 list elements with 6 dashes in place of markdown|
 |**LIST_DEPTH_5**|LISTS|Prefix depth 5 list elements with 5 dashes in place of markdown|
 |**LIST_DEPTH_4**|LISTS|Prefix depth 4 list elements with 4 dashes in place of markdown|
