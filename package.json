@@ -14,12 +14,12 @@
     "dependencies": {
         "he": ">1.0.0"
     },
-    "files": {
+    "files": [
         "LICENSE-MIT.txt",
         "package.json",
         "wikitext2plaintext.js",
         "README.md"
-    },
+    ],
     "license": "MIT",
     "main": "wikitext2plaintext.js"
 }

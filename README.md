@@ -6,6 +6,8 @@ applications.
 The module was developed to be used in scenarios where the wikitext only needs to be converted to plaintext on a best effort
 basis and perfect results are not required.  It was designed to be used on wikitext/markdown from mediawiki and specifically Wikipedia database dumps.
 
+Note that this library does NOT convert the HTML version of a wiki page, it only converts the wikitext/markdown version.
+
 ## Install
 
 ```bash
@@ -32,6 +34,15 @@ The Title
 
 If you do not want certain wikitext removed or a specific rule is causing problems with your particular use-case, you
 can exclude specific rules or specific rule groups.  The rules and rule groups are listed at the bottom of this page.
+
+##API
+
+### `wikitext2plaintext.parse(wiki_text)`
+
+* Parameter 1 - wiki_text (string) - Contains the wiki/markdown text to convert to 
+* Return value (string) - Contains the plain text version of the wiki text which was passed in
+
+This is the main function used to convert wiki text to plain text.  
 
 ## Rules & Rule Groups
 |Rule Name|Rule Group|Description|
